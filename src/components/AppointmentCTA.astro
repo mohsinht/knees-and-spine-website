@@ -7,7 +7,7 @@ import { clinic } from '@/data/clinic';
 <section class="py-16 sm:py-24">
   <Container
     ><div
-      class="overflow-hidden rounded-[var(--radius-feature)] bg-primary px-6 py-10 text-white sm:px-12 sm:py-14"
+      class="rounded-[var(--radius-feature)] bg-primary px-6 py-10 text-white shadow-[var(--shadow-cta)] sm:px-12 sm:py-14"
     >
       <div class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
         <div>
@@ -18,12 +18,18 @@ import { clinic } from '@/data/clinic';
           </h2><p class="mt-4 max-w-xl leading-relaxed text-white/75">
             Tell us what’s been bothering you and we’ll help you understand the next step.
           </p>
-        </div><Button
-          href={clinic.whatsapp.bookingHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="light">Book on WhatsApp <span class="ml-2">↗</span></Button
-        >
+        </div><div class="flex flex-wrap gap-3">
+          <Button
+            href={clinic.whatsapp.bookingHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="light">Book on WhatsApp <span class="ml-2">↗</span></Button
+          ><Button
+            href={clinic.phone.href}
+            variant="secondary"
+            class="border-white text-white hover:bg-white/10">Call the clinic</Button
+          >
+        </div>
       </div>
     </div></Container
   >

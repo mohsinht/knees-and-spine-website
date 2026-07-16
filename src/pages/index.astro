@@ -7,6 +7,7 @@ import ServiceCard from '@/components/ServiceCard.astro';
 import FeatureCard from '@/components/FeatureCard.astro';
 import FAQAccordion from '@/components/FAQAccordion.astro';
 import AppointmentCTA from '@/components/AppointmentCTA.astro';
+import HeroBrandVisual from '@/components/HeroBrandVisual.astro';
 import { clinic, physiotherapist } from '@/data/clinic';
 import { services, conditions, faqs } from '@/data/content';
 const description =
@@ -32,10 +33,9 @@ const businessSchema = {
   description={description}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
-  <section class="relative overflow-hidden border-b border-line bg-cream py-16 sm:py-24">
-    <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-mint/80" aria-hidden="true">
-    </div><Container
-      ><div class="relative grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
+  <section class="border-b border-line bg-cream py-20 sm:py-24 lg:py-28">
+    <Container
+      ><div class="grid items-center gap-12 lg:gap-20 lg:grid-cols-[1.1fr_.9fr]">
         <div>
           <p class="eyebrow">Physiotherapy · Rehabilitation · Mobility</p><h1
             class="display mt-5 max-w-3xl text-5xl leading-[.98] sm:text-7xl"
@@ -49,30 +49,10 @@ const businessSchema = {
               >Book on WhatsApp <span class="ml-2">↗</span></Button
             ><Button href={clinic.phone.href} variant="secondary">Call the Clinic</Button>
           </div>
-        </div><div class="relative">
-          <div
-            class="aspect-[4/3] overflow-hidden rounded-[var(--radius-feature)] bg-primary p-8 text-white shadow-[var(--shadow-soft)] sm:p-12"
-          >
-            <div class="flex h-full flex-col justify-between">
-              <div class="h-16 w-16 rounded-full border border-white/30" aria-hidden="true">
-              </div><div>
-                <p class="text-sm font-bold uppercase tracking-[.15em] text-white/60">
-                  Care that meets you where you are
-                </p><p class="display mt-4 text-3xl sm:text-4xl">
-                  Stronger steps.<br />More confidence.
-                </p>
-              </div>
-            </div>
-          </div><div
-            class="absolute -bottom-5 -left-4 rounded-2xl bg-white p-4 shadow-[var(--shadow-soft)] sm:left-5"
-          >
-            <p class="text-xs font-bold uppercase tracking-widest text-muted">Led by</p><p
-              class="mt-1 font-bold"
-            >
-              {physiotherapist.name}, {physiotherapist.credential}
-            </p>
-          </div>
-        </div>
+        </div><HeroBrandVisual
+          doctorName={physiotherapist.name}
+          credential={physiotherapist.credential}
+        />
       </div></Container
     >
   </section>

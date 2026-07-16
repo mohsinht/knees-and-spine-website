@@ -1,0 +1,29 @@
+---
+import KneeSpineMark from '@/components/graphics/KneeSpineMark.astro';
+import HeroMessageCard from '@/components/HeroMessageCard.astro';
+import DoctorBadge from '@/components/DoctorBadge.astro';
+
+interface Props {
+  doctorName: string;
+  credential: string;
+}
+
+const { doctorName, credential } = Astro.props;
+---
+
+<div>
+  <div
+    class="relative grid min-h-[19rem] items-center gap-5 overflow-hidden rounded-[var(--radius-feature)] border border-primary/10 bg-mint p-6 sm:min-h-[23rem] sm:grid-cols-[1.05fr_.95fr] sm:p-9"
+  >
+    <div class="flex h-full items-center justify-center">
+      <KneeSpineMark
+        alt="Knees and Spine clinic mark combining a knee joint and spine"
+        class="h-56 w-auto sm:h-72"
+      />
+    </div>
+    <HeroMessageCard />
+  </div>
+  <div class="mt-4 ml-0 sm:ml-5">
+    <DoctorBadge name={doctorName} credential={credential} />
+  </div>
+</div>

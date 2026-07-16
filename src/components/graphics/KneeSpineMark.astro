@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: 'navy' | 'white';
+  class?: string;
+  alt?: string;
+}
+
+const { variant = 'navy', class: className = '', alt = '' } = Astro.props;
+const src = variant === 'white' ? '/brand/logo-icon-white.png' : '/brand/logo-icon-512.png';
+---
+
+<!-- The supplied clinic brand mark is used directly; no anatomical illustration is redrawn. -->
+<img
+  src={src}
+  alt={alt}
+  width="512"
+  height="755"
+  class={`object-contain ${className}`}
+  decoding="async"
+/>

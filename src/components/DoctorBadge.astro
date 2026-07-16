@@ -1,0 +1,15 @@
+---
+interface Props {
+  name: string;
+  credential: string;
+}
+
+const { name, credential } = Astro.props;
+---
+
+<div
+  class="inline-block rounded-2xl border border-line bg-white px-5 py-4 shadow-[var(--shadow-soft)]"
+>
+  <p class="text-xs font-bold uppercase tracking-widest text-muted">Led by</p>
+  <p class="mt-1 font-bold text-primary">{name}, {credential}</p>
+</div>
