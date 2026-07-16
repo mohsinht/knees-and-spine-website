@@ -1,34 +1,54 @@
 ---
 import Button from './Button.astro';
 import Container from './Container.astro';
+import KneeSpineMark from './graphics/KneeSpineMark.astro';
 import { clinic } from '@/data/clinic';
 ---
 
 <section class="py-16 sm:py-24">
   <Container
     ><div
-      class="rounded-[var(--radius-feature)] bg-primary px-6 py-10 text-white shadow-[var(--shadow-cta)] sm:px-12 sm:py-14"
+      class="relative overflow-hidden rounded-[var(--radius-feature)] border border-[var(--color-brand-teal-500)]/35 bg-primary px-6 py-10 text-white shadow-[var(--shadow-cta)] sm:px-10 sm:py-14 lg:px-14 lg:py-16"
     >
-      <div class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 w-2 bg-[var(--color-brand-teal-500)]/65"
+      >
+      </div>
+      <KneeSpineMark
+        variant="white"
+        class="pointer-events-none absolute -right-12 -bottom-16 hidden h-[23rem] w-auto opacity-[0.12] lg:block"
+      />
+      <div
+        class="relative z-10 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-16"
+      >
         <div>
           <p class="eyebrow text-[var(--color-brand-teal-300)]">A good first step</p><h2
-            class="display mt-3 max-w-xl text-3xl sm:text-4xl"
+            class="display mt-3 max-w-xl text-3xl sm:text-4xl lg:text-[2.75rem]"
           >
             Let’s make movement feel more manageable.
           </h2><p class="mt-4 max-w-xl leading-relaxed text-white/75">
             Tell us what’s been bothering you and we’ll help you understand the next step.
           </p>
-        </div><div class="flex flex-wrap gap-3">
-          <Button
-            href={clinic.whatsapp.bookingHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="light">Book on WhatsApp <span class="ml-2">↗</span></Button
-          ><Button
-            href={clinic.phone.href}
-            variant="secondary"
-            class="border-white text-white hover:bg-white/10">Call the clinic</Button
-          >
+          <p class="mt-5 text-sm font-medium text-white/65">
+            No referral is required to book an initial consultation.
+          </p>
+        </div><div class="w-full rounded-2xl border border-white/15 bg-primary-dark/45 p-3 sm:p-4">
+          <div class="grid gap-3">
+            <Button
+              href={clinic.whatsapp.bookingHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="light"
+              class="w-full">Book on WhatsApp <span class="ml-2">↗</span></Button
+            ><Button
+              href={clinic.phone.href}
+              variant="secondary"
+              class="w-full border-white/70 text-white hover:bg-white/10">Call the Clinic</Button
+            >
+          </div>
+          <p class="mt-4 text-center text-xs leading-relaxed text-white/65">
+            Call or send a WhatsApp message to discuss booking.
+          </p>
         </div>
       </div>
     </div></Container

@@ -1,14 +1,24 @@
 ---
 import Container from './Container.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
+import KneeSpineMark from './graphics/KneeSpineMark.astro';
+import { Camera, CalendarCheck, Mail, MapPin, MessageCircle, Phone, ThumbsUp } from '@lucide/astro';
 import { clinic, physiotherapist } from '@/data/clinic';
 import { navItems } from '@/data/content';
 ---
 
-<footer class="border-t border-line bg-primary py-12 text-white">
+<footer
+  class="relative overflow-hidden border-t border-line bg-primary py-12 pb-24 text-white sm:py-16 sm:pb-16"
+>
+  <KneeSpineMark
+    variant="white"
+    class="pointer-events-none absolute -right-16 bottom-4 hidden h-[25rem] w-auto opacity-[0.06] xl:block"
+  />
   <Container
-    ><div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
-      <div>
+    ><div
+      class="relative z-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.45fr_.75fr_1.1fr_.8fr] lg:gap-8"
+    >
+      <div class="max-w-sm">
         <a href="/" class="inline-block"
           ><ResponsiveImage
             src="/brand/logo-wordmark-white.png"
@@ -24,45 +34,98 @@ import { navItems } from '@/data/content';
           Led by {physiotherapist.name}, {physiotherapist.credential}
         </p>
       </div><div>
-        <h2 class="font-bold">Explore</h2><div class="mt-4 grid gap-3">
+        <h2 class="text-sm font-bold uppercase tracking-[.14em] text-[var(--color-brand-teal-300)]">
+          Explore
+        </h2><div class="mt-5 grid gap-3">
           {
             navItems.map((item) => (
-              <a class="text-sm text-white/75 hover:text-white" href={item.href}>
+              <a
+                class="min-h-6 text-sm text-white/75 transition-colors hover:text-[var(--color-brand-teal-300)]"
+                href={item.href}
+              >
                 {item.label}
               </a>
             ))
-          }<a class="text-sm text-white/75 hover:text-white" href="/privacy">Privacy policy</a>
+          }<a
+            class="min-h-6 text-sm text-white/75 transition-colors hover:text-[var(--color-brand-teal-300)]"
+            href="/privacy">Privacy Policy</a
+          >
         </div>
       </div><div>
-        <h2 class="font-bold">Contact</h2><div class="mt-4 grid gap-2 text-sm">
-          <a class="font-bold text-white" href={clinic.phone.href}>Call: {clinic.phone.display}</a
+        <h2 class="text-sm font-bold uppercase tracking-[.14em] text-[var(--color-brand-teal-300)]">
+          Contact
+        </h2><div class="mt-5 grid gap-2 text-sm">
+          <a
+            class="flex min-h-11 items-center gap-3 rounded-xl px-2 text-white/80 transition-colors hover:bg-white/5 hover:text-[var(--color-brand-teal-300)]"
+            href={clinic.phone.href}
+            ><Phone class="h-4 w-4 shrink-0" aria-hidden="true" /><span
+              >Call: {clinic.phone.display}</span
+            ></a
           ><a
-            class="font-bold text-white"
+            class="flex min-h-11 items-center gap-3 rounded-xl px-2 text-white/80 transition-colors hover:bg-white/5 hover:text-[var(--color-brand-teal-300)]"
             href={clinic.whatsapp.bookingHref}
             target="_blank"
-            rel="noopener noreferrer">WhatsApp: {clinic.whatsapp.display}</a
-          ><a class="font-bold text-white" href={`mailto:${clinic.email}`}>Email: {clinic.email}</a>
+            rel="noopener noreferrer"
+            ><MessageCircle class="h-4 w-4 shrink-0" aria-hidden="true" /><span
+              >WhatsApp: {clinic.whatsapp.display}</span
+            ></a
+          ><a
+            class="flex min-h-11 items-center gap-3 rounded-xl px-2 text-white/80 transition-colors hover:bg-white/5 hover:text-[var(--color-brand-teal-300)]"
+            href={`mailto:${clinic.email}`}
+            ><Mail class="h-4 w-4 shrink-0" aria-hidden="true" /><span>{clinic.email}</span></a
+          ><p class="flex min-h-11 items-start gap-3 px-2 pt-2 text-white/65">
+            <MapPin
+              class="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-brand-teal-300)]"
+              aria-hidden="true"
+            /><span>{clinic.address}</span>
+          </p>
         </div>
-        <div class="mt-5 flex gap-4">
+      </div><div>
+        <h2 class="text-sm font-bold uppercase tracking-[.14em] text-[var(--color-brand-teal-300)]">
+          Connect
+        </h2><div class="mt-5 grid gap-2">
           <a
-            class="text-sm font-semibold text-white/75 hover:text-white"
+            class="flex min-h-11 items-center gap-3 rounded-xl px-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5 hover:text-[var(--color-brand-teal-300)]"
             href={clinic.social.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Knees & Spine on Instagram">Instagram</a
+            aria-label="Visit Knees & Spine on Instagram"
+            ><Camera class="h-4 w-4" aria-hidden="true" />Instagram</a
           ><a
-            class="text-sm font-semibold text-white/75 hover:text-white"
+            class="flex min-h-11 items-center gap-3 rounded-xl px-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5 hover:text-[var(--color-brand-teal-300)]"
             href={clinic.social.facebook.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Knees & Spine on Facebook">Facebook</a
+            aria-label="Visit Knees & Spine on Facebook"
+            ><ThumbsUp class="h-4 w-4" aria-hidden="true" />Facebook</a
+          ><a
+            class="mt-2 flex min-h-11 items-center gap-3 rounded-xl border border-[var(--color-brand-teal-500)]/45 px-3 text-sm font-bold text-white transition-colors hover:bg-white/5 hover:text-[var(--color-brand-teal-300)]"
+            href={clinic.whatsapp.bookingHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            ><CalendarCheck
+              class="h-4 w-4 text-[var(--color-brand-teal-300)]"
+              aria-hidden="true"
+            />Book an appointment</a
           >
         </div>
       </div>
-    </div><div class="mt-12 border-t border-white/20 pt-6 text-xs text-white/60">
-      © {new Date().getFullYear()}
-      {clinic.name}. Information on this website is educational and not a substitute for medical
-      advice.
+    </div><div
+      class="relative z-10 mt-12 flex flex-col gap-3 border-t border-[var(--color-brand-teal-300)]/35 pt-6 text-xs leading-relaxed text-white/60 lg:flex-row lg:items-center lg:justify-between"
+    >
+      <p>© 2026 {clinic.name}. All rights reserved.</p>
+      <p>
+        Information on this website is educational and is not a substitute for professional medical
+        advice.
+      </p>
+      <div class="flex items-center gap-4">
+        <a class="transition-colors hover:text-[var(--color-brand-teal-300)]" href="/privacy"
+          >Privacy Policy</a
+        >
+        <a class="transition-colors hover:text-[var(--color-brand-teal-300)]" href={clinic.website}
+          >kneesandspine.com</a
+        >
+      </div>
     </div></Container
   >
 </footer>
