@@ -14,16 +14,12 @@ const description =
   'Physiotherapy clinic in Canal Garden, Lahore for knee pain, back pain, mobility, rehabilitation, and guided exercise therapy.';
 const businessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'MedicalBusiness',
+  '@type': ['MedicalBusiness', 'LocalBusiness'],
   name: clinic.name,
-  url: clinic.url,
-  telephone: clinic.phone,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: clinic.address,
-    addressLocality: 'Lahore',
-    addressCountry: 'PK',
-  },
+  url: clinic.website,
+  telephone: clinic.phone.href.replace('tel:', ''),
+  email: clinic.email,
+  sameAs: [clinic.social.instagram.url, clinic.social.facebook.url],
   employee: {
     '@type': 'Person',
     name: physiotherapist.name,
@@ -50,10 +46,9 @@ const businessSchema = {
             Personalised physiotherapy for knee, spine, and everyday movement — with clear guidance
             at every step.
           </p><div class="mt-8 flex flex-wrap gap-3">
-            <Button href="/contact">Book an appointment <span class="ml-2">↗</span></Button><Button
-              href="/services"
-              variant="secondary">Explore services</Button
-            >
+            <Button href={clinic.whatsapp.bookingHref} target="_blank" rel="noopener noreferrer"
+              >Book on WhatsApp <span class="ml-2">↗</span></Button
+            ><Button href={clinic.phone.href} variant="secondary">Call the Clinic</Button>
           </div>
         </div><div class="relative">
           <div
@@ -209,8 +204,8 @@ const businessSchema = {
           description="Find us in H Block Commercial Market, Canal Garden, Lahore."
         /><FeatureCard
           icon="schedule"
-          title="Flexible hours"
-          description={clinic.hours}
+          title="Clear guidance"
+          description="We explain each step so your next movement feels more manageable."
         /><FeatureCard
           icon="support"
           title="A welcoming space"

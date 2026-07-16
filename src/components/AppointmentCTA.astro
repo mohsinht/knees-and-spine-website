@@ -2,9 +2,6 @@
 import Button from './Button.astro';
 import Container from './Container.astro';
 import { clinic } from '@/data/clinic';
-const message = encodeURIComponent(
-  'Hello, I would like to book a physiotherapy appointment at Knees & Spine Physio Clinic.',
-);
 ---
 
 <section class="py-16 sm:py-24">
@@ -21,8 +18,11 @@ const message = encodeURIComponent(
           </h2><p class="mt-4 max-w-xl leading-relaxed text-white/75">
             Tell us what’s been bothering you and we’ll help you understand the next step.
           </p>
-        </div><Button href={`https://wa.me/${clinic.whatsapp}?text=${message}`} variant="light"
-          >Book on WhatsApp <span class="ml-2">↗</span></Button
+        </div><Button
+          href={clinic.whatsapp.bookingHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="light">Book on WhatsApp <span class="ml-2">↗</span></Button
         >
       </div>
     </div></Container

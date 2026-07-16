@@ -3,9 +3,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Container from '@/components/Container.astro';
 import Button from '@/components/Button.astro';
 import { clinic } from '@/data/clinic';
-const message = encodeURIComponent(
-  'Hello, I would like to book a physiotherapy appointment at Knees & Spine Physio Clinic.',
-);
 ---
 
 <BaseLayout
@@ -20,29 +17,40 @@ const message = encodeURIComponent(
           </h1><p class="prose-copy mt-6 text-lg">
             Use the form to share a little about what you need. For the quickest response, message
             us on WhatsApp.
-          </p><a
-            class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--color-whatsapp)] px-6 text-sm font-bold text-white"
-            href={`https://wa.me/${clinic.whatsapp}?text=${message}`}>Message on WhatsApp ↗</a
+          </p><div class="mt-7 flex flex-wrap gap-3">
+            <a
+              class="inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--color-whatsapp)] px-6 text-sm font-bold text-white"
+              href={clinic.whatsapp.bookingHref}
+              target="_blank"
+              rel="noopener noreferrer">Book on WhatsApp ↗</a
+            ><a
+              class="inline-flex min-h-12 items-center justify-center rounded-full border border-primary px-6 text-sm font-bold text-primary"
+              href={clinic.phone.href}>Call the Clinic</a
+            >
+          </div><a
+            class="mt-5 inline-block text-sm font-bold text-primary underline decoration-accent decoration-2 underline-offset-8"
+            href={`mailto:${clinic.email}`}>Email Us</a
           ><dl class="mt-12 grid gap-6 text-sm">
             <div>
               <dt class="font-bold">Phone</dt><dd class="prose-copy mt-1">
-                <a href={`tel:${clinic.phone.replaceAll(' ', '')}`}>{clinic.phone}</a>
+                <a href={clinic.phone.href}>{clinic.phone.display}</a>
+              </dd>
+            </div><div>
+              <dt class="font-bold">WhatsApp</dt><dd class="prose-copy mt-1">
+                <a href={clinic.whatsapp.bookingHref} target="_blank" rel="noopener noreferrer"
+                  >{clinic.whatsapp.display}</a
+                >
               </dd>
             </div><div>
               <dt class="font-bold">Email</dt><dd class="prose-copy mt-1">
                 <a href={`mailto:${clinic.email}`}>{clinic.email}</a>
               </dd>
             </div><div>
-              <dt class="font-bold">Address</dt><dd class="prose-copy mt-1">{clinic.address}</dd>
-            </div><div>
-              <dt class="font-bold">Hours</dt><dd class="prose-copy mt-1">{clinic.hours}</dd>
+              <dt class="font-bold">Clinic location</dt><dd class="prose-copy mt-1">
+                {clinic.address}
+              </dd>
             </div>
-          </dl><a
-            class="mt-8 inline-block font-bold text-primary underline decoration-accent decoration-2 underline-offset-8"
-            href={clinic.mapsUrl}
-            target="_blank"
-            rel="noreferrer">Open in Google Maps ↗</a
-          >
+          </dl>
         </div><div
           class="rounded-[var(--radius-feature)] bg-surface p-6 shadow-[var(--shadow-soft)] sm:p-10"
         >

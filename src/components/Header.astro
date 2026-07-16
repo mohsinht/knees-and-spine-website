@@ -39,9 +39,8 @@ const currentPath = Astro.url.pathname;
           ))
         }
       </nav><div class="flex items-center gap-2">
-        <a
-          class="hidden text-sm font-bold text-primary lg:block"
-          href={`tel:${clinic.phone.replaceAll(' ', '')}`}>{clinic.phone}</a
+        <a class="hidden text-sm font-bold text-primary lg:block" href={clinic.phone.href}
+          >{clinic.phone.display}</a
         ><Button href="/contact" class="hidden sm:inline-flex">Book an appointment</Button><button
           class="mobile-toggle inline-flex h-11 w-11 items-center justify-center rounded-[var(--radius-control)] border border-line text-xl md:hidden"
           type="button"
@@ -61,7 +60,12 @@ const currentPath = Astro.url.pathname;
             {item.label}
           </a>
         ))
-      }<Button href="/contact" class="mt-2 w-full">Book an appointment</Button>
+      }<Button
+        href={clinic.whatsapp.bookingHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-2 w-full">Book on WhatsApp</Button
+      >
     </nav></Container
   >
 </header>

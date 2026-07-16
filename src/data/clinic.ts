@@ -4,15 +4,21 @@ export const clinic = {
   tagline: 'Move with more comfort. Live with more confidence.',
   description:
     'Thoughtful physiotherapy and rehabilitation for knees, spine, mobility, and everyday movement in Canal Garden, Lahore.',
-  url: import.meta.env.PUBLIC_SITE_URL || 'https://kneesandspine.com',
-  phone: '+92 300 000 0000',
-  whatsapp: '923000000000',
-  email: 'hello@kneesandspine.com',
+  website: 'https://kneesandspine.com',
+  email: 'kneesandspine@gmail.com',
+  phone: { display: '+92 305 4567423', href: 'tel:+923054567423' },
+  whatsapp: {
+    display: '+92 316 4679634',
+    href: 'https://wa.me/923164679634',
+    bookingHref:
+      'https://wa.me/923164679634?text=Hello%2C%20I%20would%20like%20to%20book%20a%20physiotherapy%20appointment%20at%20Knees%20%26%20Spine%20Physio%20Clinic.',
+  },
   address: 'H Block Commercial Market, Canal Garden, Lahore, Pakistan',
-  mapsUrl: 'https://maps.google.com/?q=H+Block+Commercial+Market+Canal+Garden+Lahore',
-  hours: 'Mon – Sat · 10:00 am – 8:00 pm',
-  social: { instagram: '#', facebook: '#' },
-  editableNote: 'Replace contact details, links, hours, and social URLs here before launch.',
+  social: {
+    instagram: { handle: '@kneesandspine', url: 'https://www.instagram.com/kneesandspine/' },
+    facebook: { handle: 'kneesandspine', url: 'https://facebook.com/kneesandspine' },
+  },
+  editableNote: 'Add verified opening hours and a Google Maps destination when they are confirmed.',
 } as const;
 export const physiotherapist = {
   name: 'Dr. Laiba Arshad',

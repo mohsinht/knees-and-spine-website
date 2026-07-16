@@ -1,13 +1,12 @@
 ---
 import { clinic } from '@/data/clinic';
-const message = encodeURIComponent(
-  'Hello, I would like to book a physiotherapy appointment at Knees & Spine Physio Clinic.',
-);
 ---
 
 <a
   class="fixed bottom-5 right-5 z-40 flex min-h-14 items-center gap-2 rounded-full bg-[var(--color-whatsapp)] px-5 font-bold text-white shadow-[var(--shadow-cta)] transition-transform hover:-translate-y-0.5"
-  href={`https://wa.me/${clinic.whatsapp}?text=${message}`}
+  href={clinic.whatsapp.bookingHref}
+  target="_blank"
+  rel="noopener noreferrer"
   aria-label="Book an appointment on WhatsApp"
   ><span class="hidden sm:inline">WhatsApp us</span><span class="sm:hidden">Chat</span></a
 >
