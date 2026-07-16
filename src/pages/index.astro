@@ -14,11 +14,21 @@ const description =
   'Physiotherapy clinic in Canal Garden, Lahore for knee pain, back pain, mobility, rehabilitation, and guided exercise therapy.';
 const businessSchema = {
   '@context': 'https://schema.org',
-  '@type': ['MedicalBusiness', 'LocalBusiness'],
+  '@type': 'MedicalClinic',
+  '@id': `${clinic.website}/#clinic`,
   name: clinic.name,
   url: clinic.website,
+  image: `${clinic.website}/brand/cover-reference.png`,
+  logo: `${clinic.website}/brand/logo-full.png`,
   telephone: clinic.phone.href.replace('tel:', ''),
   email: clinic.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: clinic.address,
+    addressLocality: 'Lahore',
+    addressCountry: 'PK',
+  },
+  areaServed: 'Lahore',
   sameAs: [clinic.social.instagram.url, clinic.social.facebook.url],
   employee: {
     '@type': 'Person',

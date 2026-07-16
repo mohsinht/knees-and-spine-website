@@ -7,9 +7,11 @@ import '@/styles/global.css';
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, clinic.website).toString();
+const socialImage = new URL('/brand/cover-reference.png', clinic.website).toString();
 ---
 
 <!doctype html>
@@ -18,10 +20,17 @@ const canonical = new URL(Astro.url.pathname, clinic.website).toString();
     ><meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta
       name="generator"
       content={Astro.generator}
+    /><meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} /><meta
+      name="theme-color"
+      content="#113c3a"
     /><title>{title}</title><meta name="description" content={description} /><link
       rel="canonical"
       href={canonical}
-    /><link rel="icon" href="/brand/favicon.png" type="image/png" /><meta
+    /><link rel="sitemap" type="application/xml" href="/sitemap-index.xml" /><link
+      rel="icon"
+      href="/brand/favicon.png"
+      type="image/png"
+    /><meta
       property="og:type"
       content="website"
     /><meta property="og:site_name" content={clinic.name} /><meta
@@ -32,10 +41,16 @@ const canonical = new URL(Astro.url.pathname, clinic.website).toString();
       content={canonical}
     /><meta
       property="og:image"
-      content={new URL('/brand/cover-reference.png', clinic.website)}
+      content={socialImage}
+    /><meta property="og:image:alt" content={`${clinic.name} brand image`} /><meta
+      property="og:locale"
+      content="en_PK"
     /><meta name="twitter:card" content="summary_large_image" /><meta
       name="twitter:title"
       content={title}
-    /><meta name="twitter:description" content={description} /></head
+    /><meta name="twitter:description" content={description} /><meta
+      name="twitter:image"
+      content={socialImage}
+    /><meta name="twitter:image:alt" content={`${clinic.name} brand image`} /></head
   ><body><Header /><main><slot /></main><Footer /><WhatsAppButton /></body>
 </html>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Astro generates the sitemap index at this stable URL during production builds.
 Sitemap: https://kneesandspine.com/sitemap-index.xml
