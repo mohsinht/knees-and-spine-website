@@ -57,10 +57,11 @@ const businessSchema = {
           </div>
         </div><div class="relative">
           <div
-            class="aspect-[4/3] overflow-hidden rounded-[2rem] bg-primary p-8 text-white shadow-[var(--shadow-soft)] sm:p-12"
+            class="aspect-[4/3] overflow-hidden rounded-[var(--radius-feature)] bg-primary p-8 text-white shadow-[var(--shadow-soft)] sm:p-12"
           >
             <div class="flex h-full flex-col justify-between">
-              <span class="text-6xl text-accent">✦</span><div>
+              <div class="h-16 w-16 rounded-full border border-white/30" aria-hidden="true">
+              </div><div>
                 <p class="text-sm font-bold uppercase tracking-[.15em] text-white/60">
                   Care that meets you where you are
                 </p><p class="display mt-4 text-3xl sm:text-4xl">
@@ -136,15 +137,15 @@ const businessSchema = {
         align="center"
       /><div class="mt-10 grid gap-4 md:grid-cols-3">
         <FeatureCard
-          icon="◌"
+          icon="assessment"
           title="Listen first"
           description="We start with your story, your routine, and the movements you want to get back to."
         /><FeatureCard
-          icon="⌁"
+          icon="care"
           title="Make a plan"
           description="You’ll leave with a clear direction and steps you can understand and use."
         /><FeatureCard
-          icon="↗"
+          icon="progress"
           title="Build confidence"
           description="Progress is measured thoughtfully, with guidance that adapts as you do."
         />
@@ -155,7 +156,7 @@ const businessSchema = {
     <Container
       ><div class="grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr]">
         <div>
-          <p class="eyebrow text-[#b9ddd2]">Meet your physiotherapist</p><h2
+          <p class="eyebrow text-[var(--color-brand-teal-300)]">Meet your physiotherapist</p><h2
             class="display mt-3 text-4xl sm:text-5xl"
           >
             Care that feels human.
@@ -203,11 +204,15 @@ const businessSchema = {
     <Container
       ><div class="grid gap-6 md:grid-cols-3">
         <FeatureCard
-          icon="⌂"
+          icon="location"
           title="Easy to reach"
           description="Find us in H Block Commercial Market, Canal Garden, Lahore."
-        /><FeatureCard icon="◷" title="Flexible hours" description={clinic.hours} /><FeatureCard
-          icon="♡"
+        /><FeatureCard
+          icon="schedule"
+          title="Flexible hours"
+          description={clinic.hours}
+        /><FeatureCard
+          icon="support"
           title="A welcoming space"
           description="A calm environment designed to help you feel comfortable asking questions."
         />

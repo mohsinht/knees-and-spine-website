@@ -1,14 +1,35 @@
 ---
+import {
+  Accessibility,
+  ClipboardCheck,
+  Clock3,
+  HeartHandshake,
+  MapPin,
+  TrendingUp,
+} from '@lucide/astro';
+
 interface Props {
   title: string;
   description: string;
-  icon?: string;
+  icon?: 'assessment' | 'care' | 'location' | 'progress' | 'schedule' | 'support';
 }
-const { title, description, icon = '✦' } = Astro.props;
+const { title, description, icon = 'assessment' } = Astro.props;
 ---
 
-<article class="rounded-[var(--radius-card)] bg-white/70 p-6">
-  <span class="text-2xl text-accent" aria-hidden="true">{icon}</span><h3 class="mt-5 font-bold">
+<article
+  class="rounded-[var(--radius-feature)] border border-line bg-surface p-6 shadow-[var(--shadow-card)]"
+>
+  <span
+    class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-mint text-accent"
+    aria-hidden="true"
+  >
+    {icon === 'assessment' && <ClipboardCheck size={22} stroke-width={1.75} />}
+    {icon === 'care' && <HeartHandshake size={22} stroke-width={1.75} />}
+    {icon === 'location' && <MapPin size={22} stroke-width={1.75} />}
+    {icon === 'progress' && <TrendingUp size={22} stroke-width={1.75} />}
+    {icon === 'schedule' && <Clock3 size={22} stroke-width={1.75} />}
+    {icon === 'support' && <Accessibility size={22} stroke-width={1.75} />}
+  </span><h3 class="mt-5 font-bold">
     {title}
   </h3><p class="prose-copy mt-2 text-sm">{description}</p>
 </article>

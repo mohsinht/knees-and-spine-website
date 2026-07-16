@@ -21,7 +21,7 @@ const message = encodeURIComponent(
             Use the form to share a little about what you need. For the quickest response, message
             us on WhatsApp.
           </p><a
-            class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#25D366] px-6 text-sm font-bold text-white"
+            class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[var(--color-whatsapp)] px-6 text-sm font-bold text-white"
             href={`https://wa.me/${clinic.whatsapp}?text=${message}`}>Message on WhatsApp ↗</a
           ><dl class="mt-12 grid gap-6 text-sm">
             <div>
@@ -43,7 +43,9 @@ const message = encodeURIComponent(
             target="_blank"
             rel="noreferrer">Open in Google Maps ↗</a
           >
-        </div><div class="rounded-[1.5rem] bg-surface p-6 shadow-[var(--shadow-soft)] sm:p-10">
+        </div><div
+          class="rounded-[var(--radius-feature)] bg-surface p-6 shadow-[var(--shadow-soft)] sm:p-10"
+        >
           <h2 class="display text-3xl">Request an appointment</h2><p
             class="prose-copy mt-2 text-sm"
           >

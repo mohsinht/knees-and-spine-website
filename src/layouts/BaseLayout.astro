@@ -21,7 +21,7 @@ const canonical = new URL(Astro.url.pathname, clinic.url).toString();
     /><title>{title}</title><meta name="description" content={description} /><link
       rel="canonical"
       href={canonical}
-    /><link rel="icon" href="/favicon.svg" type="image/svg+xml" /><meta
+    /><link rel="icon" href="/brand/favicon.png" type="image/png" /><meta
       property="og:type"
       content="website"
     /><meta property="og:site_name" content={clinic.name} /><meta
@@ -30,7 +30,7 @@ const canonical = new URL(Astro.url.pathname, clinic.url).toString();
     /><meta property="og:description" content={description} /><meta
       property="og:url"
       content={canonical}
-    /><meta property="og:image" content={new URL('/og-image.svg', clinic.url)} /><meta
+    /><meta property="og:image" content={new URL('/brand/cover-reference.png', clinic.url)} /><meta
       name="twitter:card"
       content="summary_large_image"
     /><meta name="twitter:title" content={title} /><meta

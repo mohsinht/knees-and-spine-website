@@ -6,8 +6,8 @@ const message = encodeURIComponent(
 ---
 
 <a
-  class="fixed bottom-5 right-5 z-40 flex min-h-14 items-center gap-2 rounded-full bg-[#25D366] px-5 font-bold text-white shadow-lg transition-transform hover:scale-105"
+  class="fixed bottom-5 right-5 z-40 flex min-h-14 items-center gap-2 rounded-full bg-[var(--color-whatsapp)] px-5 font-bold text-white shadow-[var(--shadow-cta)] transition-transform hover:-translate-y-0.5"
   href={`https://wa.me/${clinic.whatsapp}?text=${message}`}
   aria-label="Book an appointment on WhatsApp"
-  ><span class="text-xl">◌</span><span class="hidden sm:inline">WhatsApp us</span></a
+  ><span class="hidden sm:inline">WhatsApp us</span><span class="sm:hidden">Chat</span></a
 >

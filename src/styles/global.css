@@ -1,24 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
+@import './theme.css';
 
 :root {
-  --color-ink: #153331;
-  --color-muted: #5f706d;
-  --color-primary: #12645c;
-  --color-primary-dark: #0b4d47;
-  --color-accent: #e5a45f;
-  --color-cream: #f7f3ec;
-  --color-surface: #fffdf9;
-  --color-mint: #e8f1ed;
-  --color-line: #dce5e1;
-  --shadow-soft: 0 18px 50px rgba(21, 51, 49, 0.08);
-  --radius-card: 1.25rem;
-  --container: 1180px;
+  --color-ink: var(--color-text-primary);
+  --color-muted: var(--color-text-secondary);
+  --color-primary: var(--color-brand-navy-950);
+  --color-primary-dark: var(--color-brand-navy-900);
+  --color-accent: var(--color-brand-teal-600);
+  --color-cream: var(--color-surface-main);
+  --color-surface: var(--color-surface-white);
+  --color-mint: var(--color-surface-soft);
+  --color-line: var(--color-border-soft);
+  --shadow-soft: var(--shadow-card);
+  --container: var(--container-width);
 }
 
 @theme inline {
-  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-sans: 'Montserrat', 'Inter', Arial, sans-serif;
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
   --color-primary: var(--color-primary);
@@ -36,10 +35,9 @@ html {
 body {
   background: var(--color-cream);
   color: var(--color-ink);
-  font-family: 'DM Sans', sans-serif;
 }
 ::selection {
-  background: #b9ddd2;
+  background: var(--color-brand-teal-300);
   color: var(--color-ink);
 }
 :focus-visible {
@@ -51,18 +49,18 @@ body {
   margin-inline: auto;
 }
 .display {
-  font-family: 'Fraunces', Georgia, serif;
-  letter-spacing: -0.04em;
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.02em;
 }
 .eyebrow {
-  color: var(--color-primary);
+  color: var(--color-brand-teal-700);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 .prose-copy {
-  color: var(--color-muted);
+  color: var(--color-text-secondary);
   line-height: 1.75;
 }
 @media (min-width: 640px) {
