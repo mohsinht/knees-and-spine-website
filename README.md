@@ -30,14 +30,14 @@ src/
   layouts/     BaseLayout for SEO, shell, and global styles
   pages/       route pages: /, /services, /about, /contact, /privacy
   styles/      Tailwind entry point and design tokens
-public/        favicon, Open Graph placeholder, and robots.txt
+  public/        approved brand assets and robots.txt
 ```
 
 ## Updating content and brand assets
 
 Edit `src/data/clinic.ts` first. It is the single source for the phone, WhatsApp number, email, address, map link, hours, and social URLs. Edit `src/data/content.ts` for services, FAQs, conditions, testimonials, and navigation.
 
-Replace `public/favicon.svg` and `public/og-image.svg` with the final brand assets. A future clinic logo or photography can be added to `public/images/` and used with Astro’s image tooling when real assets are available.
+The approved logo, favicon, and social-preview assets live in `public/brand/`. Future clinic photography can be added to `public/images/` and used with Astro’s image tooling when real assets are available.
 
 ## Cloudflare Pages
 
@@ -54,4 +54,4 @@ The contact form currently validates in the browser and intentionally does not s
 
 ## Before launch
 
-Replace the marked contact placeholders in `src/data/clinic.ts`, add verified testimonials only with permission, confirm opening hours and map coordinates, add the clinician’s approved biography and registration details, review the privacy policy, and replace the favicon/Open Graph placeholders.
+Add verified patient testimonials only with permission, confirm opening hours and map coordinates if they are introduced later, and review the privacy policy before launch.

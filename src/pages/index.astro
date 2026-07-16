@@ -5,11 +5,10 @@ import Button from '@/components/Button.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
 import FeatureCard from '@/components/FeatureCard.astro';
-import TestimonialCard from '@/components/TestimonialCard.astro';
 import FAQAccordion from '@/components/FAQAccordion.astro';
 import AppointmentCTA from '@/components/AppointmentCTA.astro';
 import { clinic, physiotherapist } from '@/data/clinic';
-import { services, conditions, faqs, testimonials } from '@/data/content';
+import { services, conditions, faqs } from '@/data/content';
 const description =
   'Physiotherapy clinic in Canal Garden, Lahore for knee pain, back pain, mobility, rehabilitation, and guided exercise therapy.';
 const businessSchema = {
@@ -211,21 +210,6 @@ const businessSchema = {
           title="A welcoming space"
           description="A calm environment designed to help you feel comfortable asking questions."
         />
-      </div></Container
-    >
-  </section>
-  <section class="py-20 sm:py-28">
-    <Container
-      ><SectionHeading
-        eyebrow="Patient words"
-        title="A placeholder for the experiences that matter."
-        intro="These review cards are placeholders for verified patient feedback and will be replaced before launch."
-      /><div class="mt-10 grid gap-4 md:grid-cols-3">
-        {
-          testimonials.map(([author, quote, label]) => (
-            <TestimonialCard author={author} quote={quote} label={label} />
-          ))
-        }
       </div></Container
     >
   </section>

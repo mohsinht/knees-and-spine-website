@@ -18,7 +18,6 @@ export const clinic = {
     instagram: { handle: '@kneesandspine', url: 'https://www.instagram.com/kneesandspine/' },
     facebook: { handle: 'kneesandspine', url: 'https://facebook.com/kneesandspine' },
   },
-  editableNote: 'Add verified opening hours and a Google Maps destination when they are confirmed.',
 } as const;
 export const physiotherapist = {
   name: 'Dr. Laiba Arshad',

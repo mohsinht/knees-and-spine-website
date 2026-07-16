@@ -11,10 +11,10 @@ import { navItems } from '@/data/content';
       <div>
         <a href="/" class="inline-block"
           ><ResponsiveImage
-            src="/brand/logo-full-white.png"
-            width={640}
-            height={178}
-            class="h-11 w-auto"
+            src="/brand/logo-wordmark-white.png"
+            width={1200}
+            height={272}
+            class="h-12 w-auto"
             alt={clinic.name}
           /></a
         ><p class="mt-4 max-w-sm text-sm leading-relaxed text-white/75">
@@ -35,14 +35,13 @@ import { navItems } from '@/data/content';
         </div>
       </div><div>
         <h2 class="font-bold">Contact</h2><div class="mt-4 grid gap-2 text-sm">
-          <a class="font-bold text-accent" href={clinic.phone.href}>Call: {clinic.phone.display}</a
+          <a class="font-bold text-white" href={clinic.phone.href}>Call: {clinic.phone.display}</a
           ><a
-            class="font-bold text-accent"
+            class="font-bold text-white"
             href={clinic.whatsapp.bookingHref}
             target="_blank"
             rel="noopener noreferrer">WhatsApp: {clinic.whatsapp.display}</a
-          ><a class="font-bold text-accent" href={`mailto:${clinic.email}`}>Email: {clinic.email}</a
-          >
+          ><a class="font-bold text-white" href={`mailto:${clinic.email}`}>Email: {clinic.email}</a>
         </div>
         <div class="mt-5 flex gap-4">
           <a

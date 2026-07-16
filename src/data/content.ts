@@ -58,23 +58,6 @@ export const faqs = [
     'Your programme is adapted to your current ability. We focus on clear, manageable steps and adjust them as you progress.',
   ],
 ] as const;
-export const testimonials = [
-  [
-    'A thoughtful, clear approach',
-    'Placeholder testimonial — replace with a verified patient review before publishing.',
-    'Patient story placeholder',
-  ],
-  [
-    'I felt listened to',
-    'Placeholder testimonial — replace with a verified patient review before publishing.',
-    'Patient story placeholder',
-  ],
-  [
-    'Practical exercises I could keep up with',
-    'Placeholder testimonial — replace with a verified patient review before publishing.',
-    'Patient story placeholder',
-  ],
-] as const;
 export const conditions = [
   'Knee pain',
   'Back pain',
