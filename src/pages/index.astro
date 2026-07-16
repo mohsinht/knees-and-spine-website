@@ -1,0 +1,243 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import Button from '@/components/Button.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import FeatureCard from '@/components/FeatureCard.astro';
+import TestimonialCard from '@/components/TestimonialCard.astro';
+import FAQAccordion from '@/components/FAQAccordion.astro';
+import AppointmentCTA from '@/components/AppointmentCTA.astro';
+import { clinic, physiotherapist } from '@/data/clinic';
+import { services, conditions, faqs, testimonials } from '@/data/content';
+const description =
+  'Physiotherapy clinic in Canal Garden, Lahore for knee pain, back pain, mobility, rehabilitation, and guided exercise therapy.';
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: clinic.name,
+  url: clinic.url,
+  telephone: clinic.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: clinic.address,
+    addressLocality: 'Lahore',
+    addressCountry: 'PK',
+  },
+  employee: {
+    '@type': 'Person',
+    name: physiotherapist.name,
+    jobTitle: `${physiotherapist.role}, ${physiotherapist.credential}`,
+  },
+};
+---
+
+<BaseLayout
+  title={`${clinic.name} | Physiotherapy in Canal Garden, Lahore`}
+  description={description}
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+  <section class="relative overflow-hidden border-b border-line bg-cream py-16 sm:py-24">
+    <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-mint/80" aria-hidden="true">
+    </div><Container
+      ><div class="relative grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr]">
+        <div>
+          <p class="eyebrow">Physiotherapy · Rehabilitation · Mobility</p><h1
+            class="display mt-5 max-w-3xl text-5xl leading-[.98] sm:text-7xl"
+          >
+            A steadier path back to <em class="text-primary">moving well.</em>
+          </h1><p class="prose-copy mt-7 max-w-xl text-lg">
+            Personalised physiotherapy for knee, spine, and everyday movement — with clear guidance
+            at every step.
+          </p><div class="mt-8 flex flex-wrap gap-3">
+            <Button href="/contact">Book an appointment <span class="ml-2">↗</span></Button><Button
+              href="/services"
+              variant="secondary">Explore services</Button
+            >
+          </div>
+        </div><div class="relative">
+          <div
+            class="aspect-[4/3] overflow-hidden rounded-[2rem] bg-primary p-8 text-white shadow-[var(--shadow-soft)] sm:p-12"
+          >
+            <div class="flex h-full flex-col justify-between">
+              <span class="text-6xl text-accent">✦</span><div>
+                <p class="text-sm font-bold uppercase tracking-[.15em] text-white/60">
+                  Care that meets you where you are
+                </p><p class="display mt-4 text-3xl sm:text-4xl">
+                  Stronger steps.<br />More confidence.
+                </p>
+              </div>
+            </div>
+          </div><div
+            class="absolute -bottom-5 -left-4 rounded-2xl bg-white p-4 shadow-[var(--shadow-soft)] sm:left-5"
+          >
+            <p class="text-xs font-bold uppercase tracking-widest text-muted">Led by</p><p
+              class="mt-1 font-bold"
+            >
+              {physiotherapist.name}, {physiotherapist.credential}
+            </p>
+          </div>
+        </div>
+      </div></Container
+    >
+  </section>
+  <section class="border-b border-line bg-surface py-5">
+    <Container
+      ><div class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-muted">
+        <span>✓ One-to-one attention</span><span>✓ Practical home exercises</span><span
+          >✓ Respectful, evidence-informed care</span
+        >
+      </div></Container
+    >
+  </section>
+  <section class="py-20 sm:py-28">
+    <Container
+      ><div class="flex flex-wrap items-end justify-between gap-6">
+        <SectionHeading
+          eyebrow="Our services"
+          title="Support for the way you want to move."
+          intro="From a new ache to a longer recovery, we’ll help you understand your body and build a plan that fits real life."
+        /><a href="/services" class="font-bold text-primary">View all services ↗</a>
+      </div><div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          services
+            .slice(0, 6)
+            .map(([title, text], i) => (
+              <ServiceCard title={title} description={text} index={i + 1} />
+            ))
+        }
+      </div></Container
+    >
+  </section>
+  <section class="bg-mint py-20 sm:py-28">
+    <Container
+      ><div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
+        <SectionHeading
+          eyebrow="Where we can help"
+          title="Care for the concerns that slow you down."
+          intro="Your assessment helps us understand what is going on and what matters most to you. We never promise a one-size-fits-all fix."
+        /><div class="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {
+            conditions.map((condition) => (
+              <div class="rounded-xl border border-primary/10 bg-white/70 p-4 text-sm font-semibold">
+                {condition}
+              </div>
+            ))
+          }
+        </div>
+      </div></Container
+    >
+  </section>
+  <section class="py-20 sm:py-28">
+    <Container
+      ><SectionHeading
+        eyebrow="Why Knees & Spine"
+        title="Calm, clear care with your goals at the centre."
+        align="center"
+      /><div class="mt-10 grid gap-4 md:grid-cols-3">
+        <FeatureCard
+          icon="◌"
+          title="Listen first"
+          description="We start with your story, your routine, and the movements you want to get back to."
+        /><FeatureCard
+          icon="⌁"
+          title="Make a plan"
+          description="You’ll leave with a clear direction and steps you can understand and use."
+        /><FeatureCard
+          icon="↗"
+          title="Build confidence"
+          description="Progress is measured thoughtfully, with guidance that adapts as you do."
+        />
+      </div></Container
+    >
+  </section>
+  <section class="bg-primary py-20 text-white sm:py-28">
+    <Container
+      ><div class="grid items-center gap-12 lg:grid-cols-[.8fr_1.2fr]">
+        <div>
+          <p class="eyebrow text-[#b9ddd2]">Meet your physiotherapist</p><h2
+            class="display mt-3 text-4xl sm:text-5xl"
+          >
+            Care that feels human.
+          </h2>
+        </div><div>
+          <p class="text-lg leading-relaxed text-white/80">
+            {physiotherapist.name}, {physiotherapist.credential}, brings a thoughtful, patient-first
+            approach to rehabilitation. The aim is not just to reduce discomfort, but to help you
+            understand movement and feel more capable in daily life.
+          </p><a
+            href="/about"
+            class="mt-7 inline-block font-bold text-white underline decoration-accent decoration-2 underline-offset-8"
+            >Learn more about the clinic ↗</a
+          >
+        </div>
+      </div></Container
+    >
+  </section>
+  <section class="py-20 sm:py-28">
+    <Container
+      ><div class="grid gap-12 lg:grid-cols-2">
+        <SectionHeading
+          eyebrow="What to expect"
+          title="A treatment approach built around you."
+          intro="We combine assessment, hands-on guidance where appropriate, and exercise therapy that makes sense for your life."
+        /><div class="grid gap-3">
+          <div class="rounded-2xl border border-line p-5">
+            <strong>01 · Understand</strong><p class="prose-copy mt-2 text-sm">
+              We listen and assess how you move, what you feel, and what you want to do next.
+            </p>
+          </div><div class="rounded-2xl border border-line p-5">
+            <strong>02 · Practise</strong><p class="prose-copy mt-2 text-sm">
+              We guide you through useful movements and explain how they support your recovery.
+            </p>
+          </div><div class="rounded-2xl border border-line p-5">
+            <strong>03 · Progress</strong><p class="prose-copy mt-2 text-sm">
+              We review what is changing and adjust your plan at a sensible pace.
+            </p>
+          </div>
+        </div>
+      </div></Container
+    >
+  </section>
+  <section class="bg-surface py-20">
+    <Container
+      ><div class="grid gap-6 md:grid-cols-3">
+        <FeatureCard
+          icon="⌂"
+          title="Easy to reach"
+          description="Find us in H Block Commercial Market, Canal Garden, Lahore."
+        /><FeatureCard icon="◷" title="Flexible hours" description={clinic.hours} /><FeatureCard
+          icon="♡"
+          title="A welcoming space"
+          description="A calm environment designed to help you feel comfortable asking questions."
+        />
+      </div></Container
+    >
+  </section>
+  <section class="py-20 sm:py-28">
+    <Container
+      ><SectionHeading
+        eyebrow="Patient words"
+        title="A placeholder for the experiences that matter."
+        intro="These review cards are placeholders for verified patient feedback and will be replaced before launch."
+      /><div class="mt-10 grid gap-4 md:grid-cols-3">
+        {
+          testimonials.map(([author, quote, label]) => (
+            <TestimonialCard author={author} quote={quote} label={label} />
+          ))
+        }
+      </div></Container
+    >
+  </section>
+  <section class="bg-mint py-20 sm:py-28">
+    <Container
+      ><SectionHeading
+        eyebrow="Questions, answered"
+        title="A little more clarity before you visit."
+      /><div class="mt-8 max-w-3xl">
+        {faqs.map(([question, answer]) => <FAQAccordion question={question} answer={answer} />)}
+      </div></Container
+    >
+  </section>
+  <AppointmentCTA />
+</BaseLayout>

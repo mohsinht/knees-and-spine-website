@@ -1,0 +1,30 @@
+---
+import Button from './Button.astro';
+import Container from './Container.astro';
+import { clinic } from '@/data/clinic';
+const message = encodeURIComponent(
+  'Hello, I would like to book a physiotherapy appointment at Knees & Spine Physio Clinic.',
+);
+---
+
+<section class="py-16 sm:py-24">
+  <Container
+    ><div
+      class="overflow-hidden rounded-[1.75rem] bg-primary px-6 py-10 text-white sm:px-12 sm:py-14"
+    >
+      <div class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+        <div>
+          <p class="eyebrow text-[#b9ddd2]">A good first step</p><h2
+            class="display mt-3 max-w-xl text-3xl sm:text-4xl"
+          >
+            Let’s make movement feel more manageable.
+          </h2><p class="mt-4 max-w-xl leading-relaxed text-white/75">
+            Tell us what’s been bothering you and we’ll help you understand the next step.
+          </p>
+        </div><Button href={`https://wa.me/${clinic.whatsapp}?text=${message}`} variant="light"
+          >Book on WhatsApp <span class="ml-2">↗</span></Button
+        >
+      </div>
+    </div></Container
+  >
+</section>

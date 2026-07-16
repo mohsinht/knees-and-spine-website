@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kneesandspine.com/sitemap-index.xml

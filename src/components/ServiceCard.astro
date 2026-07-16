@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  index?: number;
+}
+const { title, description, index = 1 } = Astro.props;
+---
+
+<article
+  class="group rounded-[var(--radius-card)] border border-line bg-surface p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+>
+  <div class="mb-10 flex items-center justify-between">
+    <span
+      class="flex h-10 w-10 items-center justify-center rounded-full bg-mint text-sm font-bold text-primary"
+      >{String(index).padStart(2, '0')}</span
+    ><span
+      class="text-xl text-accent transition-transform group-hover:translate-x-1"
+      aria-hidden="true">↗</span
+    >
+  </div><h3 class="text-lg font-bold text-ink">{title}</h3><p class="prose-copy mt-2 text-sm">
+    {description}
+  </p>
+</article>

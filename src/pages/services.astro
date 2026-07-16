@@ -1,0 +1,28 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Container from '@/components/Container.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import AppointmentCTA from '@/components/AppointmentCTA.astro';
+import { services } from '@/data/content';
+---
+
+<BaseLayout
+  title="Physiotherapy services | Knees & Spine Lahore"
+  description="Explore physiotherapy, rehabilitation, mobility, and guided exercise therapy services at Knees & Spine Physio Clinic in Lahore."
+  ><section class="py-16 sm:py-24">
+    <Container
+      ><SectionHeading
+        eyebrow="Our services"
+        title="Thoughtful support for stronger everyday movement."
+        intro="Every plan begins with an assessment and is adapted to your symptoms, goals, and routine. Results vary from person to person."
+      /><div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          services.map(([title, text], i) => (
+            <ServiceCard title={title} description={text} index={i + 1} />
+          ))
+        }
+      </div></Container
+    >
+  </section><AppointmentCTA /></BaseLayout
+>
